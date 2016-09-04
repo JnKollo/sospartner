@@ -1,0 +1,23 @@
+sos_main:
+    resource: "@SOSMainBundle/Resources/config/routing.yml"
+    prefix:   /
+
+sos_user:
+    resource: "@SOSUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
+sos_register:
+    path:     /register
+    defaults: { _controller: SOSUserBundle:Registration:register }
+
+sos_login:
+    path:     /login
+    defaults: { _controller: SOSUserBundle:Security:login }
+
+sos_login_check:
+    path:      /login_check
+
+sos_logout:
+    path:       /logout
+
+

@@ -1,0 +1,36 @@
+{% extends 'content.html.twig' %}
+
+{% block title %}Trouver un partenaire{% endblock %}
+
+{% block content %}
+    <div id="page-wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Résultats</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4>Partenaires trouvés</h4>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                {% for partner in listUsers %}
+                                    <li>{{ partner.username }}</li> pratique ces sports :
+                                    <div class="col-lg-12">
+                                        {% for activity in partner.activities %}
+                                            <li>{{ activity.sport }}</li>
+                                        {% endfor %}
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

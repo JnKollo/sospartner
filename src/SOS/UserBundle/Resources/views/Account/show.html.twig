@@ -1,0 +1,35 @@
+{% extends 'content.html.twig' %}
+
+{% block title %}Mon compte{% endblock %}
+
+{% block content %}
+    <div id="page-wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Paramètres du compte</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Mes informations de compte
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <ul>
+                                <li>username : {{ app.user.username }}</li>
+                                <li>email : {{ app.user.email }}</li>
+                            </ul>
+                            <div class="col-lg-6 col-lg-offset-3">
+                                <a href="{{ path('sos_user_account_edit') }}">
+                                    <button class="btn btn-lg btn-success btn-block">Changer mes informations de compte</button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

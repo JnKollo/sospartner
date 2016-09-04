@@ -1,0 +1,3 @@
+sos_main_homepage:
+    path:     /
+    defaults: { _controller: SOSMainBundle:Default:index }

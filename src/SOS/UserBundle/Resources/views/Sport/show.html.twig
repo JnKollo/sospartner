@@ -1,0 +1,85 @@
+{% extends 'content.html.twig' %}
+
+{% block title %}Mes activités{% endblock %}
+
+{% block content %}
+    <div id="page-wrapper">
+        <div class="row">
+            {% for flash_message in app.session.flashBag.get('notice') %}
+                <div class="alert alert-success">
+                    {{ flash_message }}
+                </div>
+            {% endfor %}
+            <div class="col-lg-12">
+                <h1 class="page-header">Mes activités</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Mes sports
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="col-lg-12">
+                                    <p>Je pratique tel sport : </p>
+                                    <ul>
+                                        {% for activity in app.user.activities %}
+                                            <li>{{ activity.sport }}</li>
+                                            <p>Au niveau : {{ activity.level }}</p>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                                <p> dans cette ville : {{ app.user.city }}.</p>
+
+                                <div class="col-lg-6 col-lg-offset-3">
+                                    <a href="{{ path('sos_user_sport_edit_activity') }}">
+                                        <button class="btn btn-lg btn-success btn-block">Changer mes activités</button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Mes disponibilités
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <p>Je suis disponible ces jours : </p>
+                                <div class="col-lg-12">
+                                    <ul>
+                                        {% for availability in app.user.availability %}
+                                            <li>{{ availability.days }}</li>
+                                            <p>Sur ces tranches horaires :</p>
+                                            <div class="col-lg-12">
+                                                <ul>
+                                                    {% for hours in availability.hours %}
+                                                        <li>{{ hours.hour }}</li>
+                                                    {% endfor %}
+                                                </ul>
+                                            </div>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                                <div class="col-lg-6 col-lg-offset-3">
+                                    <a href="{{ path('sos_user_sport_edit_availability') }}">
+                                        <button class="btn btn-lg btn-success btn-block">Changer mes disponibilités</button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

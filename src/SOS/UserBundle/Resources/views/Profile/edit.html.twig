@@ -1,0 +1,50 @@
+{% extends 'content.html.twig' %}
+
+{% block title %}Mon profil {% endblock %}
+
+{% block content %}
+    <div id="page-wrapper">
+        <div class="row">
+            {% for flash_message in app.session.flashBag.get('notice') %}
+                <div class="alert alert-success">
+                    {{ flash_message }}
+                </div>
+            {% endfor %}
+            <div class="col-lg-12">
+                <h1 class="page-header">Modifier son profil</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <div class="panel panel-default">
+                    <div class="panel-heading text-center">
+                        Informations personnelles
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <form role="form" action="{{ path('sos_user_profile_edit') }}" method="post">
+                                    <fieldset>
+                                        {{ form_start(form) }}
+                                        {{ form_row(form.firstname) }}
+                                        {{ form_row(form.lastname) }}
+                                        {{ form_row(form.sex) }}
+                                        {{ form_row(form.birthdate) }}
+                                        {{ form_row(form.address) }}
+                                        {{ form_row(form.city) }}
+                                        {{ form_row(form.zipCode) }}
+                                        {{ form_row(form.phone) }}
+                                        <div class="form-group">
+                                            <button type="submit" class="btn btn-lg btn-success btn-block">Modifier ses informations</button>
+                                        </div>
+                                        {{ form_end(form) }}
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

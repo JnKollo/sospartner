@@ -1,0 +1,4 @@
+services:
+#    sos_user.example:
+#        class: SOS\UserBundle\Example
+#        arguments: ["@service_id", "plain_value", %parameter%]

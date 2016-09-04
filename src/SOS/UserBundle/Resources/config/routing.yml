@@ -1,0 +1,39 @@
+sos_user_profile_show:
+    path:     /profile
+    defaults: { _controller: SOSUserBundle:Profile:show }
+
+sos_user_profile_edit:
+    path:     /profile/edit
+    defaults: { _controller: SOSUserBundle:Profile:edit }
+
+sos_user_account_show:
+    path:     /account
+    defaults: { _controller: SOSUserBundle:Account:show }
+
+sos_user_account_edit:
+    path:     /account/edit
+    defaults: { _controller: SOSUserBundle:Account:edit }
+
+sos_user_sport_show:
+    path:     /sport
+    defaults: { _controller: SOSUserBundle:Sport:show }
+
+sos_user_sport_edit_activity:
+    path:     /sport/edit/activity
+    defaults: { _controller: SOSUserBundle:Sport:editActivity }
+
+sos_user_sport_edit_availability:
+    path:     /sport/edit/availability
+    defaults: { _controller: SOSUserBundle:Sport:editAvailability }
+
+sos_user_search:
+    path:     /search
+    defaults: { _controller: SOSUserBundle:Search:index }
+
+sos_user_search_list_by_user:
+    path:     /search/list_by_user
+    defaults: { _controller: SOSUserBundle:Search:listByUser }
+
+sos_user_search_list_by_activity:
+    path:     /search/list_by_activity
+    defaults: { _controller: SOSUserBundle:Search:listByActivity }
