@@ -16,14 +16,19 @@ class ProfileController extends Controller
 {
     public function showAction()
     {
+        $lequipeRss = 'http://www.lequipe.fr/rss/actu_rss.xml';
+
         $user = $this->getUser();
+
+        $xml = $this->getXMLFieldsFromUrl($lequipeRss);dump($xml);exit;
 
         if (!$this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_FULLY')) {
             throw $this->createAccessDeniedException();
         }
 
         return $this->render('SOSUserBundle:Profile:show.html.twig', array(
-            'user'  =>  $user
+            'user'  =>  $user,
+            'xml'   => $xml
         ));
     }
 
@@ -52,5 +57,14 @@ class ProfileController extends Controller
             'user'  =>  $user,
             'form'  =>  $form->createView()
         ));
+    }
+
+    private function getXMLFieldsFromUrl($url)
+    {
+        $obj = file_get_contents($url);
+
+        $xml = simplexml_load_string($obj);
+
+        return $xml;
     }
 }
